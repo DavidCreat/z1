@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recursos/css/index.css">
+    <title>tienda zapatos</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="recursos/img/zapatillas.png" alt="Logo de la Empresa">
+        </a>
+  
+        <input type="checkbox" id="check" />
+        <label for="check" class="icons">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class="bx bx-x" id="close-icon"></i>
+        </label>
+  
+        <!-- Menú de navegación -->
+        <nav class="navbar">
+            <a href="#" class="nav-item" style="--i: 0">Inicio</a>
+            <a href="zapatos.html" class="nav-item" style="--i: 1">Zapatos</a>
+            <a href="#" class="nav-item" style="--i: 2">Sobre Nosotros</a>
+            <a href="#" class="nav-item">
+                <img src="recursos/img/carrito-de-compras.png" alt="carrito">
+            </a>
+        </nav>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item">
+                <a href="#seccion1">50% DESCUENTO</a>
+            </div>
+            <div class="carousel-item">
+                <a href="#seccion2">NUEVA COLECCION</a>
+            </div>
+            <div class="carousel-item">
+                <a href="#seccion3">TIENDA FISICA CUCUTA</a>
+            </div>
+            <!-- Agrega más elementos de carrusel según sea necesario -->
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <!-- Slider de imágenes -->
+        <ul class="slideshow">
+            <li><span style="--i: 0;"></span></li>
+            <li><span style="--i: 1;"></span></li>
+            <li><span style="--i: 2;"></span></li>
+        </ul>
+    </main>
+    
+    <!--GIF SCROLL-->
+    <div class="scroll-down-indicator">
+        <img src="recursos/img/Scroll-Down-white.gif" alt="Indicador de scroll">
+    </div>
+
+    <!-- Bloques de contenido -->
+    <div class="content">
+        <div class="content-box">
+            <h2>Atención Rápida</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="content-box">
+            <h2>Fácil Contacto</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="content-box">
+            <h2>Buena Calidad</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+
+
+<!-- Más contenido debajo -->
+<div class="more-content">
+
+    <script src="recursos/js/index.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            // Hacer una solicitud al servidor para obtener el zapato más reciente
+            try {
+                const response = await fetch('/api/zapato-mas-reciente');
+                const data = await response.json();
+    
+                // Crear un nuevo elemento de producto con los datos obtenidos
+                const productosSection = document.getElementById('productosSection');
+                const productoElement = document.createElement('article');
+                productoElement.classList.add('producto');
+                productoElement.innerHTML = `
+                    <img src="${data.imagen}" alt="${data.nombre}">
+                    <h2>${data.nombre}</h2>
+                    <p>${data.descripcion}</p>
+                    <span>${data.precio}</span>
+                    <button>Contactar por WHATSAPP</button>
+                `;
+    
+                // Agregar el nuevo elemento al contenedor de productos
+                productosSection.appendChild(productoElement);
+            } catch (error) {
+                console.error('Error al obtener el zapato más reciente:', error);
+            }
+        });
+    </script>>
+
+    <!-- Páginas de Categorías -->
+    <section class="categorias">
+        <h2>Categorías</h2>
+        <ul>
+            <li><a href="/categorias/deportivos">Deportivos</a></li>
+            <li><a href="/categorias/casuales">Casuales</a></li>
+            <li><a href="/categorias/elegantes">Elegantes</a></li>
+        </ul>
+    </section>
+
+    <!-- Página de Contacto -->
+    <section class="contacto">
+        <h2>Contacto</h2>
+        <p>Ponte en contacto con nosotros en support@example.com</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 DAVID</p>
+    </footer>
+</div>
+    <script src="recursos/js/index.js"></script>
+</body>
+</html>
